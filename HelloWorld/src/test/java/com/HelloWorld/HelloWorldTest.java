@@ -38,12 +38,26 @@ public class HelloWorldTest {
     @Test
     public void testMain() throws Exception {
         /**
-         * Constructor check
+         * Empty args check
          * <p>
-         *     -Passes if no exceptions thrown
+         *     -Passes if:
+         *     <ul>
+         *         <li>No exceptions thrown</li>
+         *     </ul>
          * </p>
          */
-        HelloWorld tester = new HelloWorld();
         HelloWorld.main(null);
+
+        /**
+         * Args provided check
+         * <p>
+         *     -Passes if:
+         *     <ul>
+         *         <li>No exceptions thrown</li>
+         *     </ul>
+         * </p>
+         */
+        String[] strings = {"Arg1", "Arg2"};
+        HelloWorld.main(strings);
     }
 }
