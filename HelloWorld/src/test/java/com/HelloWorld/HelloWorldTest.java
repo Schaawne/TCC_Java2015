@@ -16,6 +16,7 @@ public class HelloWorldTest {
      *
      * @throws Exception passes exceptions to caller
      */
+    @Test
     public void testHelloWorld() throws Exception {
         /**
          * Constructor check

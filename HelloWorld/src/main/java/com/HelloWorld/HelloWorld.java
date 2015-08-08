@@ -12,7 +12,7 @@ public class HelloWorld {
 
         TestClass localTestClass = new TestClass();
 
-        localTestClass.setPrivInt(5);
+        localTestClass.setPrivInt(12);
         System.out.format("privInt = %d\r\n", localTestClass.getPrivInt());
     }
 }
