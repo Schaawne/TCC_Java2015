@@ -13,25 +13,33 @@ import static org.junit.Assert.*;
 public class HelloWorldTest {
     /**
      * Test for HelloWorld constructor
+     * <p>
+     *     Checks:
+     *     <ul>
+     *         <li>Default Constructor</li>
+     *     </ul>
      *
      * @throws Exception passes exceptions to caller
      */
     @Test
     public void testHelloWorld() throws Exception {
         /**
-         * Constructor check
-         * <p>
-         *     -Passes if:
-         *     <ul>
-         *         <li>No exceptions thrown</li>
-         *     </ul>
-         * </p>
+         * Default Constructor check
+         *
+         * Passes if:
+         * -No exceptions thrown
          */
         HelloWorld tester = new HelloWorld();
     }
 
     /**
      * Test for Main() function
+     * <p>
+     *     Checks:
+     *     <ul>
+     *         <li>Empty args</li>
+     *         <li>Non-empty args</li>
+     *     </ul>
      *
      * @throws Exception passes exceptions to caller
      */
@@ -39,23 +47,17 @@ public class HelloWorldTest {
     public void testMain() throws Exception {
         /**
          * Empty args check
-         * <p>
-         *     -Passes if:
-         *     <ul>
-         *         <li>No exceptions thrown</li>
-         *     </ul>
-         * </p>
+         *
+         * Passes if:
+         * -No exceptions thrown
          */
         HelloWorld.main(null);
 
         /**
          * Args provided check
-         * <p>
-         *     -Passes if:
-         *     <ul>
-         *         <li>No exceptions thrown</li>
-         *     </ul>
-         * </p>
+         *
+         * Passes if:
+         * -No exceptions thrown
          */
         String[] strings = {"Arg1", "Arg2"};
         HelloWorld.main(strings);
