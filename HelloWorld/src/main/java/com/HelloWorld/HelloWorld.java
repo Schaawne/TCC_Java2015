@@ -1,5 +1,8 @@
 package com.HelloWorld;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * com.HelloWorld.HelloWorld Class
  *
@@ -30,6 +33,38 @@ public class HelloWorld {
         else
         {
             System.out.println("No args provided.");
+        }
+
+        //Line to be parsed
+        String line = "This order was canceled for QT3000! OK?";
+
+        //Pattern object
+        String pattern = "(\\b\\w*\\b)( for )(\\b\\w*\\d+\\b)";
+        Pattern thePattern = Pattern.compile(pattern);
+
+        //Matcher object
+        Matcher theMatcher = thePattern.matcher(line);
+
+        //Find matches
+        int groupCount = 0;
+        int matchCount = 0;
+        while(theMatcher.find())
+        {
+            matchCount++;
+            groupCount = theMatcher.groupCount();
+            System.out.format("Match Number %d, Group Count %d:\r\n", matchCount, groupCount);
+            for(int groupID = 0; groupID <= groupCount; groupID++)
+            {
+                System.out.format("\t-Group(%d) = %s\r\n", groupID, theMatcher.group(groupID));
+            }
+        }
+        if(0 == matchCount)
+        {
+            System.out.println("No match found!");
+        }
+        else
+        {
+            System.out.format("Total of %d matches found!", matchCount);
         }
     }
 }
