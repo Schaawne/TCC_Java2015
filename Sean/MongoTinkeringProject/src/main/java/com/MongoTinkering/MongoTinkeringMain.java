@@ -23,6 +23,13 @@ public class MongoTinkeringMain {
     {
         System.out.println("-----com.MongoTinkering.MongoTinkeringMain MongoTinkeringMain() method start!-----");
 
+        //Create MongoInterface object
+        MongoInterface theMongoInterface = new MongoInterface();
+
+        //Attempt to connect
+        boolean connectSuccess = theMongoInterface.Connnect();
+        System.out.println("Connection " + (connectSuccess ? "Succeeded!" : "Failed!"));
+
         System.out.println("-----com.MongoTinkering.MongoTinkeringMain MongoTinkeringMain() method end!-----");
     }
 }
