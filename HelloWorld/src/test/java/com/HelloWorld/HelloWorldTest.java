@@ -33,33 +33,67 @@ public class HelloWorldTest {
     }
 
     /**
-     * Test for Main() function
+     * Test for PatternMatching() function
      * <p>
      *     Checks:
      *     <ul>
-     *         <li>Empty args</li>
-     *         <li>Non-empty args</li>
+     *         <li>Pattern with matches</li>
+     *         <li>Pattern without matches</li>
      *     </ul>
      *
      * @throws Exception passes exceptions to caller
      */
     @Test
-    public void testMain() throws Exception {
+    public void testPatternMatching() throws Exception {
+        String inputString = "This is an input String!";
+
+        /**
+         * Pattern with matches check
+         *
+         * Passes if:
+         * -No exceptions thrown
+         */
+        String regExPatternMatch = "(\\b\\w*\\b)( an )(\\b\\w*\\b)"; //pattern search for '{word} an {word}'
+        HelloWorld.PatternMatching(inputString, regExPatternMatch);
+
+        /**
+         * Pattern without matches check
+         *
+         * Passes if:
+         * -No exceptions thrown
+         */
+        String patternNoMatch = "(\\b\\d+\\b)"; //pattern searching for '{digits}'
+        HelloWorld.PatternMatching(inputString, patternNoMatch);
+    }
+
+    /**
+     * Test for ArgsProcessor() function
+     * <p>
+     *     Checks:
+     *     <ul>
+     *         <li>Empty args</li>
+     *         <li>Provided args</li>
+     *     </ul>
+     *
+     * @throws Exception passes exceptions to caller
+     */
+    @Test
+    public void testArgsProcessor() throws Exception {
         /**
          * Empty args check
          *
          * Passes if:
          * -No exceptions thrown
          */
-        HelloWorld.main(null);
+        HelloWorld.ArgsProcessor(null);
 
         /**
-         * Args provided check
+         * Provided args check
          *
          * Passes if:
          * -No exceptions thrown
          */
-        String[] strings = {"Arg1", "Arg2"};
-        HelloWorld.main(strings);
+        String[] argsInput = {"Arg1", "Arg2"};
+        HelloWorld.ArgsProcessor(argsInput);
     }
 }

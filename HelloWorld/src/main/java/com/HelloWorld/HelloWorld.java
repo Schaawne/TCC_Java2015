@@ -10,6 +10,11 @@ import java.util.regex.Pattern;
  * @version 0.0.0.1
  */
 public class HelloWorld {
+    /**
+     * Main function for com.HelloWorld
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         //Hello World!
         System.out.println("Hello World!");
@@ -21,6 +26,24 @@ public class HelloWorld {
         localTestClass.setPrivInt(15);
         System.out.format("privInt = %d\r\n", localTestClass.getPrivInt());
 
+        //Process command line args
+        ArgsProcessor(args);
+
+        //Line to be parsed
+        String inputString = "This order was canceled for QT3000! OK?";
+
+        //Pattern to match (RegEx)
+        String pattern = "(\\b\\w*\\b)( for )(\\b\\w*\\d+\\b)";
+
+        PatternMatching(inputString, pattern);
+    }
+
+    /**
+     * Processes args array for HelloWorld.main()
+     *
+     * @param args String array of command line arguments
+     */
+    public static void ArgsProcessor(String[] args) {
         //Check out args
         int argCount = 0;
         if(null != args) {
@@ -34,19 +57,23 @@ public class HelloWorld {
         {
             System.out.println("No args provided.");
         }
+    }
 
-        //Line to be parsed
-        String line = "This order was canceled for QT3000! OK?";
-
+    /**
+     * Tryinng out Pattern and Matcher classes
+     *
+     * @param inputString String to be processed
+     * @param pattern Pattern to match within inputString
+     */
+    public static void PatternMatching(String inputString, String pattern) {
         //Pattern object
-        String pattern = "(\\b\\w*\\b)( for )(\\b\\w*\\d+\\b)";
         Pattern thePattern = Pattern.compile(pattern);
 
         //Matcher object
-        Matcher theMatcher = thePattern.matcher(line);
+        Matcher theMatcher = thePattern.matcher(inputString);
 
         //Find matches
-        int groupCount = 0;
+        int groupCount;
         int matchCount = 0;
         while(theMatcher.find())
         {
@@ -64,7 +91,7 @@ public class HelloWorld {
         }
         else
         {
-            System.out.format("Total of %d matches found!", matchCount);
+            System.out.format("Total of %d matches found!\r\n", matchCount);
         }
     }
 }
