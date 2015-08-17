@@ -4,62 +4,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * com.HelloWorld.TriangleAsInterface class
+ * RectangleAsInterface class for HelloWorld
+ * <p>
+ * Created by Schaawne on 8/16/2015.
  *
  * @author Sean Blanton
  * @version 0.0.0.1
  * @since 0.0.0.1
  */
-public class TriangleAsInterface implements PolygonInterface {
+public class RectangleAsInterface implements PolygonInterface{
     /** List to store CartesianPoint objects representing the vertices */
     private List<CartesianPoint> vertexList;
 
     /**
-     * TriangleAsInterface Constructor
+     * RectangleAsInterface Constructor
      *
-     * @param point1 Vertex 1 cartesian point
-     * @param point2 Vertex 2 cartesian point
-     * @param point3 Vertex 3 cartesian point
+     * @param p1 Vertex 1 CartesianPoint
+     * @param p2 Vertex 2 CartesianPoint
+     * @param p3 Vertex 3 CartesianPoint
+     * @param p4 Vertex 4 CartesianPoint
      */
-    public TriangleAsInterface(CartesianPoint point1, CartesianPoint point2, CartesianPoint point3) {
+    public RectangleAsInterface(CartesianPoint p1, CartesianPoint p2, CartesianPoint p3, CartesianPoint p4) {
         //Create the List
         vertexList = new ArrayList<>();
         //Populate the List with provided CartesianPoints
-        vertexList.add(point1);
-        vertexList.add(point2);
-        vertexList.add(point3);
+        vertexList.add(p1);
+        vertexList.add(p2);
+        vertexList.add(p3);
+        vertexList.add(p4);
     }
 
     /**
      * Area function
      * <p>
-     * Calculates the area of the triangle based on its vertices
-     * Formula from: https://en.wikipedia.org/wiki/Triangle#Computing_the_area_of_a_triangle
+     * Calculates the area of the rectangle
      *
-     * @return Area of the triangle
+     * @return Area of the rectangle
      */
     public double Area() {
-        double determinant;
-        CartesianPoint a,b,c;
-
-        //Get the CartesianPoint vertex objects
-        a = vertexList.get(0);
-        b = vertexList.get(1);
-        c = vertexList.get(2);
-
-        //Calculate determinant
-        determinant = (a.X() - c.X())*(b.Y() - a.Y()) - (a.X() - b.X())*(c.Y() - a.Y());
-
-        //A = (1/2)*|determinant|
-        return 0.5 * Math.abs(determinant);
+        return this.Height() * this.Width();
     }
 
     /**
      * Height function
      * <p>
-     * Calculates the height of the triangle based on its vertices
+     * Calculates the height of the rectangle
      *
-     * @return Height of the triangle
+     * @return Height of the rectangle
      */
     public double Height() {
         double maxY, minY;
@@ -95,34 +86,21 @@ public class TriangleAsInterface implements PolygonInterface {
     /**
      * Perimeter function
      * <p>
-     * Calculates the perimeter of the triangle based on its vertices
+     * Calculates the perimeter of the rectangle
      *
-     * @return Perimeter of the triangle
+     * @return Perimeter of the rectangle
      */
     public double Perimeter() {
-        double sideLength1, sideLength2, sideLength3;
-        CartesianPoint a,b,c;
-
-        //Get the CartesianPoint vertex objects
-        a = vertexList.get(0);
-        b = vertexList.get(1);
-        c = vertexList.get(2);
-
-        //Calculate the side lengths
-        sideLength1 = a.Distance(b);
-        sideLength2 = b.Distance(c);
-        sideLength3 = c.Distance(a);
-
-        //P = a + b + c; a,b,c = length of sides
-        return sideLength1 + sideLength2 + sideLength3;
+        //P = 2*w + 2*h
+        return 2*this.Height() + 2*this.Width();
     }
 
     /**
      * Width function
      * <p>
-     * Calculates the width of the triangle based on its vertices
+     * Calculates the width of the rectangle based on its vertices
      *
-     * @return Width of the triangle
+     * @return Width of the rectangle
      */
     public double Width() {
         double maxX, minX;

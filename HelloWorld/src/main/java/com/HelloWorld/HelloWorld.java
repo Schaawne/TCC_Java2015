@@ -62,21 +62,120 @@ public class HelloWorld {
 
         /** TriangleAsInterface **/
         TriangleAsInterface triangleAsInterface = new TriangleAsInterface(p1, p2, p3);
-        List<CartesianPoint> triangleInterfaceVertices = triangleAsInterface.Vertices();
+        System.out.println("**TriangleAsInterface**");
 
-        //Vertices
-        System.out.println("TriangleAsInterface vertices (from PolygonInterface):");
-        for(CartesianPoint point : triangleInterfaceVertices)
+        //PolygonInterface printing
+        PolygonInterfacePrinter(triangleAsInterface);
+
+        //ShapeInterface printing
+        ShapeInterfacePrinter(triangleAsInterface);
+
+        /** RectangleAsInterface */
+        RectangleAsInterface rectangleAsInterface = new RectangleAsInterface(p1, p2, p3, p4);
+        System.out.println("**RectangleAsInterface**");
+
+        //PolygonInterface printing
+        PolygonInterfacePrinter(rectangleAsInterface);
+
+        //ShapeInterface printing
+        ShapeInterfacePrinter(rectangleAsInterface);
+
+        /** CircleAsInterface */
+        CircleAsInterface circleAsInterface = new CircleAsInterface(2.5, new CartesianPoint(2.5, 2.5));
+        System.out.println("**CircleAsInterface**");
+
+        //ShapeInterface printing
+        ShapeInterfacePrinter(circleAsInterface);
+
+        /**
+         * Tinker with ShapeInheritance
+         */
+        /** TriangleAsInterface **/
+        Triangle triangle = new Triangle(p1, p2, p3);
+        System.out.println("**Triangle**");
+
+        //Polygon printing
+        PolygonPrinter(triangle);
+
+        //Shape printing
+        ShapePrinter(triangle);
+
+        /** RectangleAsInterface */
+        Rectangle rectangle = new Rectangle(p1, p2, p3, p4);
+        System.out.println("**Rectangle**");
+
+        //Polygon printing
+        PolygonPrinter(rectangle);
+
+        //Shape printing
+        ShapePrinter(rectangle);
+
+        /** CircleAsInterface */
+        Circle circle = new Circle(2.5, new CartesianPoint(2.5, 2.5));
+        System.out.println("**Circle**");
+
+        //Shape printing
+        ShapePrinter(circle);
+    }
+
+    /**
+     * PolygonInterface values printer
+     *
+     * @param polygon PolygonInterface object
+     */
+    public static void PolygonInterfacePrinter(PolygonInterface polygon)
+    {
+        //Get vertices
+        List<CartesianPoint> polygonVertices = polygon.Vertices();
+
+        System.out.println("Polygon Vertices:");
+        for(CartesianPoint point : polygonVertices)
         {
             System.out.println("\t(" + point.X() + "," + point.Y() + "),");
         }
-        //Sizes
-        System.out.println("TriangleAsInterface Height (from ShapeInterface): " + triangleAsInterface.Height());
-        System.out.println("TriangleAsInterface Width (from ShapeInterface): " + triangleAsInterface.Width());
-        System.out.println("TriangleAsInterface Area (from ShapeInterface): " + triangleAsInterface.Area());
-        System.out.println("TriangleAsInterface Perimeter (from ShapeInterface): " + triangleAsInterface.Perimeter());
+    }
 
-        /** RectangleAsInterface */
+    /**
+     * Polygon values printer
+     *
+     * @param polygon Polygon object
+     */
+    public static void PolygonPrinter(Polygon polygon)
+    {
+        //Get vertices
+        List<CartesianPoint> polygonVertices = polygon.Vertices();
+
+        System.out.println("Polygon Vertices:");
+        for(CartesianPoint point : polygonVertices)
+        {
+            System.out.println("\t(" + point.X() + "," + point.Y() + "),");
+        }
+    }
+
+    /**
+     * ShapeInterface values printer
+     *
+     * @param shape ShapeInterface object
+     */
+    public static void ShapeInterfacePrinter(ShapeInterface shape)
+    {
+        System.out.println("Shape Height: " + shape.Height());
+        System.out.println("Shape Width: " + shape.Width());
+        System.out.println("Shape Area: " + shape.Area());
+        System.out.println("Shape Perimeter: " + shape.Perimeter());
+    }
+
+    /**
+     * Shape values printer
+     *
+     * @param shape Shape object
+     */
+    public static void ShapePrinter(Shape shape)
+    {
+        System.out.println("Shape Height: " + shape.Height());
+        System.out.println("Shape Width: " + shape.Width());
+        System.out.println("Shape Area: " + shape.Area());
+        System.out.println("Shape Perimeter: " + shape.Perimeter());
     }
 
     /**

@@ -5,7 +5,7 @@ package com.HelloWorld;
  *
  * @author Sean Blanton
  * @version 0.0.0.1
- * @since Aug 16, 2015
+ * @since 0.0.0.1
  */
 public interface ShapeInterface {
     double Area();

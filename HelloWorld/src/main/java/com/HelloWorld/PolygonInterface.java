@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Sean Blanton
  * @version 0.0.0.1
- * @since Aug 16, 2015
+ * @since 0.0.0.1
  */
 public interface PolygonInterface extends ShapeInterface {
     List<CartesianPoint> Vertices();

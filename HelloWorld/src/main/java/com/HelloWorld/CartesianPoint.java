@@ -5,13 +5,13 @@ package com.HelloWorld;
  *
  * @author Sean Blanton
  * @version 0.0.0.1
- * @since Aug 16, 2015
+ * @since 0.0.0.1
  */
 public class CartesianPoint {
     /** X cartesian coordinate */
-    private int x_coord;
+    private double x_coord;
     /** Y cartesian coordinate */
-    private int y_coord;
+    private double y_coord;
 
     /**
      * CartesianPoint constructor
@@ -19,7 +19,7 @@ public class CartesianPoint {
      * @param x_coord X coordinate
      * @param y_coord Y coordinate
      */
-    public CartesianPoint(int x_coord, int y_coord) {
+    public CartesianPoint(double x_coord, double y_coord) {
         this.x_coord = x_coord;
         this.y_coord = y_coord;
     }
@@ -29,7 +29,7 @@ public class CartesianPoint {
      *
      * @return y_coord
      */
-    public int Y() {
+    public double Y() {
         return y_coord;
     }
 
@@ -38,7 +38,7 @@ public class CartesianPoint {
      *
      * @return x_coord
      */
-    public int X() {
+    public double X() {
         return x_coord;
     }
 
