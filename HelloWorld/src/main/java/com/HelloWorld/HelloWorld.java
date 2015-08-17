@@ -1,5 +1,6 @@
 package com.HelloWorld;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,9 +17,15 @@ public class HelloWorld {
      * @param args command line arguments
      */
     public static void main(String[] args) {
+        /**
+         * Hello World
+         */
         //Hello World!
         System.out.println("Hello World!");
 
+        /**
+         * Tinker with TestClass
+         */
         //Instantiate TestClass
         TestClass localTestClass = new TestClass();
 
@@ -26,16 +33,50 @@ public class HelloWorld {
         localTestClass.setPrivInt(15);
         System.out.format("privInt = %d\r\n", localTestClass.getPrivInt());
 
+        /**
+         * Commandline arguments processing
+         */
         //Process command line args
         ArgsProcessor(args);
 
+        /**
+         * Tinker with Pattern and Matcher java util classes
+         */
         //Line to be parsed
         String inputString = "This order was canceled for QT3000! OK?";
 
         //Pattern to match (RegEx)
         String pattern = "(\\b\\w*\\b)( for )(\\b\\w*\\d+\\b)";
 
+        //Attempt to match with the pattern
         PatternMatching(inputString, pattern);
+
+        /**
+         * Tinker with ShapeInterface
+         */
+        //Some easy points
+        CartesianPoint p1 = new CartesianPoint(0, 0);
+        CartesianPoint p2 = new CartesianPoint(0, 5);
+        CartesianPoint p3 = new CartesianPoint(5, 0);
+        CartesianPoint p4 = new CartesianPoint(5, 5);
+
+        /** TriangleAsInterface **/
+        TriangleAsInterface triangleAsInterface = new TriangleAsInterface(p1, p2, p3);
+        List<CartesianPoint> triangleInterfaceVertices = triangleAsInterface.Vertices();
+
+        //Vertices
+        System.out.println("TriangleAsInterface vertices (from PolygonInterface):");
+        for(CartesianPoint point : triangleInterfaceVertices)
+        {
+            System.out.println("\t(" + point.X() + "," + point.Y() + "),");
+        }
+        //Sizes
+        System.out.println("TriangleAsInterface Height (from ShapeInterface): " + triangleAsInterface.Height());
+        System.out.println("TriangleAsInterface Width (from ShapeInterface): " + triangleAsInterface.Width());
+        System.out.println("TriangleAsInterface Area (from ShapeInterface): " + triangleAsInterface.Area());
+        System.out.println("TriangleAsInterface Perimeter (from ShapeInterface): " + triangleAsInterface.Perimeter());
+
+        /** RectangleAsInterface */
     }
 
     /**
