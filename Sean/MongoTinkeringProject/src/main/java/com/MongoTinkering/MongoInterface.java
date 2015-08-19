@@ -3,6 +3,7 @@ package com.MongoTinkering;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import java.util.ArrayList;
@@ -48,6 +49,9 @@ public class MongoInterface {
     /** MongoDB DB object */
     private MongoDatabase mongoDBObject;
 
+    /** MongoDB Collection object */
+    private MongoCollection currentCollection;
+
     /**
      * Default Constructor for MongoInterface
      * <p>
@@ -67,6 +71,7 @@ public class MongoInterface {
         mongoDBObject = null;
         mongoDBSevers = null;
         mongoDBCredentials = null;
+        currentCollection = null;
     }
 
     /**
@@ -225,11 +230,6 @@ public class MongoInterface {
                 returnVal = false;
                 System.out.println("MongoDBObject already existed!");
             }
-
-            for(String collectionName : mongoDBObject.listCollectionNames())
-            {
-                System.out.println("Found collection " + collectionName);
-            }
         } catch (Exception e) {
             returnVal = false;
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -237,5 +237,28 @@ public class MongoInterface {
 
         //Return boolean
         return returnVal;
+    }
+
+    public Iterable<String> getCollectionsList()
+    {
+        if(null != mongoDBObject)
+        {
+            return mongoDBObject.listCollectionNames();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public void SetCollection(String collName)
+    {
+        if(null != mongoDBObject) {
+            currentCollection = mongoDBObject.getCollection(collName);
+        }
+        else
+        {
+            currentCollection = null;
+        }
     }
 }

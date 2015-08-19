@@ -1,5 +1,6 @@
 package com.MongoTinkering;
 
+
 /**
  * Main class for MongoTinkering project
  * <p>
@@ -29,6 +30,22 @@ public class MongoTinkeringMain {
         //Attempt to connect
         boolean connectSuccess = theMongoInterface.Connnect();
         System.out.println("Connection " + (connectSuccess ? "Succeeded!" : "Failed!"));
+
+        //Get the collections list
+        if(connectSuccess)
+        {
+            Iterable<String> collectionNames = theMongoInterface.getCollectionsList();
+            boolean emptySet = true;
+            for(String collectionName : collectionNames)
+            {
+                emptySet = false;
+                System.out.println("Found collection name: \"" + collectionName + "\"");
+            }
+            if(emptySet)
+            {
+                System.out.println("No collections found!");
+            }
+        }
 
         System.out.println("-----com.MongoTinkering.MongoTinkeringMain MongoTinkeringMain() method end!-----");
     }

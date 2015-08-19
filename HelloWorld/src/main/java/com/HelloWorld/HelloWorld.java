@@ -88,7 +88,7 @@ public class HelloWorld {
         ShapeInterfacePrinter(circleAsInterface);
 
         /**
-         * Tinker with ShapeInheritance
+         * Tinker with Shape inheritance
          */
         /** TriangleAsInterface **/
         Triangle triangle = new Triangle(p1, p2, p3);
