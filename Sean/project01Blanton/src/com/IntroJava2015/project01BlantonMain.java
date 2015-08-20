@@ -1,3 +1,5 @@
+package com.IntroJava2015;
+
 /**
  * project01BlantonMain class for project01Blanton
  * <p>
