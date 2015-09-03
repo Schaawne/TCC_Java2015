@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="project02Blanton:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/project02Blanton_jar</output-path>
+    <root id="archive" name="project02Blanton.jar">
+      <element id="module-output" name="project02Blanton" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/AverageMain.java" />
+    </root>
+  </artifact>
+</component>
