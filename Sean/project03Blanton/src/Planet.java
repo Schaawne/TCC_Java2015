@@ -20,8 +20,30 @@ public class Planet extends CelestialBody
      */
     public Planet(String name, int moons)
     {
-        //Call CelestialBody constructor for name
+        //Call CelestialBody partial constructor
         super(name);
+
+        //Set # of moons (protect against negative values
+        if(0 <= moons)
+        {
+            moonsCount = moons;
+        }
+        else
+        {
+            moonsCount = 0;
+        }
+    }
+
+    /**
+     * Planet Constructor
+     *
+     * @param name name of Planet
+     * @param moons # of moons belonging to Planet (>=0)
+     */
+    public Planet(String name, int moons, double mass, double radius)
+    {
+        //Call CelestialBody full constructor
+        super(name, mass, radius);
 
         //Set # of moons (protect against negative values
         if(0 <= moons)
@@ -50,6 +72,10 @@ public class Planet extends CelestialBody
     public String toString()
     {
         //Format string using getName() from CelestialBody and moonsCount from Planet
-        return String.format("Planet: %10s {Moons: %d}", "{" + getName() + "}", moonsCount); //Inline String for text alignmet
+        return String.format("Planet: %10s {Mass: %05.3ekg, Mean Radius: %05.3ekm, Moons: %d}",
+                "{" + getName() + "}",
+                getMass(),
+                getRadius(),
+                moonsCount);
     }
 }
