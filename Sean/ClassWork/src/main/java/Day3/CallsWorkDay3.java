@@ -1,8 +1,10 @@
+package Day3;
+
 import java.util.Random;
 import java.util.Scanner;
 
 /**
- * ClassWorkMain class for ClassWork
+ * Day3.CallsWorkDay3 class for ClassWork
  * <p>
  * Created by Schaawne on 8/11/2015.
  *
@@ -10,7 +12,8 @@ import java.util.Scanner;
  * @version 0.0.0.1
  * @since 0.0.0.1
  */
-public class ClassWorkMain {
+public class CallsWorkDay3
+{
     public static void main(String[] args)
     {
         Scanner theScanner = new Scanner(System.in);
