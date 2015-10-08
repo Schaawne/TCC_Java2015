@@ -18,7 +18,7 @@ import java.util.List;
  * @version 0.0.0.1
  * @since 0.0.0.1
  */
-public class MongoInterface {
+public class MongoInterface extends com.Aeromet.DBInterface {
     /** Database network location address */
     private String dbPath;
 
@@ -184,7 +184,7 @@ public class MongoInterface {
         return dbPassword;
     }
 
-    public boolean Connnect() {
+    public boolean Connect() {
         boolean returnVal = true; //Assume true, set false in failure blocks
 
         try{
