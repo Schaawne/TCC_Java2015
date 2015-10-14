@@ -98,8 +98,8 @@ public class Driver
     private static void addVocabCards()
     {
         int index = 0;
-        String words[] =        {"Hola", "Por Favor", "Gracias", "Adios"};
-        String englishWords[] = {"Hello", "Please",   "Thanks",  "Goodbye" };
+        String words[] =        {"Hola",  "Por Favor", "Gracias", "Adios"};
+        String englishWords[] = {"Hello", "Please",    "Thanks",  "Goodbye" };
 
         //Add using constructed FlashCard method
         for(index = 0; index < (words.length - 2); index++)

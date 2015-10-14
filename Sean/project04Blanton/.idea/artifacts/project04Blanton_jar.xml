@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="project04Blanton:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/project04Blanton_jar</output-path>
+    <root id="archive" name="project04Blanton.jar">
+      <element id="module-output" name="project04Blanton" />
+    </root>
+  </artifact>
+</component>
